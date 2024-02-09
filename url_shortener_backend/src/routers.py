@@ -1,48 +1,28 @@
-from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi import APIRouter, HTTPException
 from fastapi.responses import RedirectResponse, JSONResponse
-from pydantic import BaseModel
+from models import Url
 import string
 import random
-import os
+
+router = APIRouter()
 
 LENGTH_SHORT_URL = 6
 BASE_URL = "http://localhost:8000"
-
-app = FastAPI()
-
-origins = [
-    os.getenv("CLIENT_ORIGIN", "http://localhost:3000"),
-]
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-class Url(BaseModel):
-    url: str
-
 url_mapping = {}
 
 def find_url(url_mapping, url_to_check):
-
     for short_url, url_info in url_mapping.items():
         if url_info['url'] == url_to_check:
             return short_url
     return None
 
 def generate_short_url():
-    """Generate a random short URL of fixed length."""
     while True:
         short_url = ''.join(random.choices(string.ascii_uppercase + string.digits, k=LENGTH_SHORT_URL))
         if short_url not in url_mapping:
             return short_url
 
-@app.post("/shorten")
+@router.post("/shorten")
 def create_short_url(url: Url):
     try:
         short_url = find_url(url_mapping, url.url)
@@ -55,7 +35,8 @@ def create_short_url(url: Url):
     except Exception as e:
         return JSONResponse(status_code=400, content={"message": str(e)})
 
-@app.get("/{short_url}")
+
+@router.get("/{short_url}")
 def redirect(short_url: str):
     try:
         if short_url not in url_mapping:
