@@ -8,7 +8,10 @@ Before you begin, ensure you have Python 3.8 or higher installed on your machine
 
 ### Setting Up the Development Environment
 
-1. Create a new Virtual Environment
+Navigate to the url_shortener_backend directory where the backend application is located:
+#### ` cd url_shortener_app/url_shortener_backend`
+
+1. Create a new Virtual Environment 
     #### `python -m venv venv`
 
 2. Activate the Virtual Environment
@@ -23,9 +26,7 @@ You should now see (venv) before your command prompt, indicating that the virtua
 
 3. Install Dependencies
 
-Before installing dependencies, navigate to the url_shortener_backend directory where the backend application is located:
-
-#### ` cd url_shortener_app/url_shortener_backend`
+Before installing dependencies, ensure you are in the url_shortener_backend directory
 
 Then run:
 #### `pip install -r requirements.txt`
