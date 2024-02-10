@@ -26,7 +26,6 @@ def generate_short_url():
 def create_short_url(url: Url):
     try:
         short_url = find_url(url_mapping, url.url)
-        print(short_url)
         print(url_mapping)
         if not short_url:
             short_url = generate_short_url()
