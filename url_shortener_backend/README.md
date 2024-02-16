@@ -35,7 +35,7 @@ Then run:
 
 Before running the Application, navigate to the src directory where the code is located:
 
-#### ` cd url_shortener_app/url_shortener_backend/src`
+#### ` cd url_shortener_app/url_shortener_backend/app`
 
 To run the FastAPI application, use the following command:
 #### `uvicorn main:app --reload`

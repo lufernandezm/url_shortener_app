@@ -3,7 +3,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from routers import router as url_router
 import os
 
-LENGTH_SHORT_URL = 6
 BASE_URL = "http://localhost:8000"
 
 app = FastAPI()

@@ -13,4 +13,4 @@ Refer to the [Url Shortener Backend README](./url_shortener_backend/README.md) f
 ### Frontend Setup
 The frontend application is built with React and Node.js. Make sure you have NodeJs installed on your machine before starting.
 
-For detailed setup instructions, including how to run the application in development mode, refer to the [Url Shortener Frontend README](.\url_shortener_frontend\README.md).
+For detailed setup instructions, including how to run the application in development mode, refer to the [Url Shortener Frontend README](./url_shortener_frontend/README.md).
